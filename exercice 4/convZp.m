@@ -4,9 +4,10 @@ function z = convZp(x, y, p)
     % 
     % calculate the convolution of x,y
     n=length(x);
-    X=[x,zeros(1,n)];
+    m=length(y);
+    X=[x,zeros(1,m)];
     Y=[y,zeros(1,n)];
-    for i=1:2*n-1
+    for i=1:m+n-1
         z(i)=0;
         for j=1:n
             if(i-j+1>0)
@@ -16,5 +17,4 @@ function z = convZp(x, y, p)
         end
     end
     z = mod(z,p);
-   
 end
