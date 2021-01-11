@@ -7,6 +7,6 @@ function z = invZp(x, p)
 %     2) calculate the z = x mod p.
 
     addpath('../exercice 3')
-    [g,s,t] = ext_eu_alg_int(x,p)
+    [g,s,t] = ext_eu_alg_int(x,p);
     z = mod(s, p);
 end
