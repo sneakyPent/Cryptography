@@ -1,7 +1,6 @@
-function z = difZp(x,y,p)
+function z = difZp(x, y, p)
 
-% calculates x-y in Z_p
-
-
+    % calculates x-y in Z_p
+    z = mod(x - y, p);
 
 end
