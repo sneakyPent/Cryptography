@@ -1,4 +1,4 @@
-function [g, s, t] = ext_eu_alg_int(a, b)
+function [g, s, t] = ext_euc_alg_int(a, b)
 
 %   g = r*r_0 + r   
 
@@ -9,7 +9,13 @@ function [g, s, t] = ext_eu_alg_int(a, b)
     x_0 = 0; 
     y_0 = 1;
     
-    
+    if b==0
+        s=1;
+        t=0;
+        g=a;
+        return;
+    end
+        
     while r_0 ~= 0
         r = mod(g,r_0);
         q = fix(g / r_0);
@@ -23,5 +29,4 @@ function [g, s, t] = ext_eu_alg_int(a, b)
         t = y_0;
         y_0 = y;
     end
-    return
 end
