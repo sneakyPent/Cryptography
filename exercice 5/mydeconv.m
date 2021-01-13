@@ -16,7 +16,7 @@ function [c, d] = mydeconv(a, b, p)
 
     devidend = a;
     devisor = b;
-    quotient = []
+    quotient = [];
     while (length(devidend)>= length(devisor))
            z=mod(devidend(end)*invZp(devisor(end),p),p);
            mul = mulZp(z,devisor,p);
