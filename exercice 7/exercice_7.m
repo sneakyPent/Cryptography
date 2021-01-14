@@ -5,7 +5,7 @@
 % 
 % 
 % 
-%   *In every transmission create message and error independently,transmit the message
+%   *In every transmission create message and error independently,"transmit" the message
 %       and add the transmitted with the error to crete the errorTransmitted message
 % 
 
@@ -14,15 +14,9 @@ k=11;
 F=2;
 maxErrorLen = 10;
 g=[1 1 0 0 1];
-numOfMessages = 10^5;
+numOfMessages = 10^4;
 theoreticalProbability = ones(1,maxErrorLen-1);
 experimentalProbability = ones(1,maxErrorLen-1);
-for i=2:maxErrorLen
-    theoreticalProbability(i) = theoretical_detection(n,k,i,F);
-end
-
-% non1=zeros(1,10); non2=zeros(1,10);
-% no_error=zeros(1,10);
 
 for len=2:maxErrorLen
     numOfDetectedErrors=0;
@@ -51,10 +45,9 @@ for len=2:maxErrorLen
        numOfDetectedErrors=numOfDetectedErrors+error;
        
    end
-   numOfDetectedErrors
-   experimentalProbability(len)=numOfDetectedErrors/numOfMessages
+   experimentalProbability(len)=numOfDetectedErrors/numOfMessages;
+   theoreticalProbability(len) = theoretical_detection(n,k,len,F);
 end
-experimentalProbability
-figure()
-plot([1:maxErrorLen],experimentalProbability, [1:maxErrorLen],theoreticalProbability);
-axis([1 10 0.7 1.1])
+figure(1)
+plot(1:maxErrorLen,experimentalProbability, 1:maxErrorLen,theoreticalProbability);
+axis([1 11 0.8 1.02])
