@@ -9,7 +9,11 @@ function [syndrom, error] = syndrom_comp_error_detect(n,gen,r)
 %       if the syndrom is syn = 0 then we have no error since r(x) in <g(x)>
 %   2) we know r(x) = b(x)g(x)+s(x) => [r(x)/g(x)] = b(x) + [s(x)/g(x)] =>
 %                 => s(x) = r_{g(x)}[r(x)]
-
+    if length(r) ~= n 
+        error = 1;
+        syndrom = [];
+        return ;
+    end
     [~, syndrom] = mydeconv(r,gen,2);
     if syndrom == 0
         error = 0;
