@@ -28,8 +28,9 @@ for len=2:maxErrorLen
        e = zeros(1,n); 
 %        find a random index to start the radnom error vector of len(e(x)) = len
        idx=randi([1 n-len+1],'double');
-%        create a random error vector with length = len
-       rer=randi([0 1],1,len,'double');
+%        create a random error vector with length = len-2
+       rer=randi([0 1],1,len-2,'double');
+       rer = [1,rer,1];
 %        import the random error vector, in the zeros error vector, in the
 %           previous index idx
        e(idx:idx+len-1)=rer;
@@ -50,4 +51,5 @@ for len=2:maxErrorLen
 end
 figure(1)
 plot(1:maxErrorLen,experimentalProbability, 1:maxErrorLen,theoreticalProbability);
-axis([1 11 0.8 1.02])
+axis([1 11 0.86 1.02])
+legend('Experimental','Theoretical')
