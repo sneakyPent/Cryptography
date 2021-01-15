@@ -29,8 +29,7 @@ for len=2:maxErrorLen
 %        find a random index to start the radnom error vector of len(e(x)) = len
        idx=randi([1 n-len+1],'double');
 %        create a random error vector with length = len-2
-       rer=randi([0 1],1,len-2,'double');
-       rer = [1,rer,1];
+       rer = [1,randi([0 1],1,len-2,'double'),1];
 %        import the random error vector, in the zeros error vector, in the
 %           previous index idx
        e(idx:idx+len-1)=rer;
