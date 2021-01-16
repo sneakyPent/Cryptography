@@ -33,12 +33,6 @@ for len=2:maxErrorLen
 %        import the random error vector, in the zeros error vector, in the
 %           previous index idx
        e(idx:idx+len-1)=rer;
-       while e == zeros(1,n)
-           rer=randi([0 1],1,len,'double');
-%           import the random error vector, in the zeros error vector, in the
-%               previous index idx
-           e(idx:idx+len-1)=rer;
-       end
        [~,systematicMessage]=cyc_encodeZ2(n,g,m);
        errorTransmitted=sumZp(systematicMessage,e,2);
        [~,error]=syndrom_comp_error_detect(n,g,errorTransmitted);
