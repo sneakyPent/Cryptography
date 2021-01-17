@@ -3,8 +3,7 @@
 % On every part we use 
 %       -> code (15, 11)
 %       -> generator  gen = [1 1 0 0 1]
-% addpath('../exercice 4')
-% addpath('../exercice 5')
+
 %% A
 % Run cyc_encodeZ2 function for message m=[0 1 1 1]
 n = 15;
@@ -14,6 +13,7 @@ m=[0 1 1 1];
 %% B
 % decode the codeword c = [1 1 0 1 1 1 0 0 0 1 1 1 0 1] 
 n = 15;
+k=11;
 gen = [1 1 0 0 1];
 c=[1 1 0 1 1 1 0 0 0 1 1 1 0 1];
 c_padded =  [c, zeros(1, n - length(c))];

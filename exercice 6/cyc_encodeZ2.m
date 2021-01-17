@@ -6,8 +6,10 @@ function [nonSys_mes, sys_mes] = cyc_encodeZ2(n, gen, m)
 %       gen: The vector of the generator polyonym
 %       m: The vector of the message
 %     Output:
-%       nonSys_mes: Encoded message in nonSystematic
-%       sys_mes:    Encoded message in Systematic
+%       nonSys_mes: Encoded message in nonSystematic, if results don't
+%                   match return -1
+%       sys_mes:    Encoded message in Systematic, if results don't
+%                   match return -1
 % 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 

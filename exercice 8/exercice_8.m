@@ -1,5 +1,21 @@
 clc ;clear all
 
+% exercice 8_1 get the 2 parity bits for the message [109 39] [125 56]
+len = 17;
+messageBytes = 2;
+n = (messageBytes+2)*8;
+gen = [1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 1];
+d1 = [109 39];
+d2 = [125 56];
+c1 = crcAnsiCoder(d1,gen);
+c2 = crcAnsiCoder(d2,gen);
+fprintf('\nParities in Bytes => m1 = [ %d %d ] \n',c1(1), c1(2));
+fprintf('\nParities in Bytes => m2 = [ %d %d ] \n',c2(1), c2(2));
+
+%%
+
+% Transmit 100 bytes with error length = 17  and proove that there is an
+%   unedetected error
 len = 17;
 messageBytes = 100;
 n = (messageBytes+2)*8;
@@ -28,7 +44,7 @@ numOfDetectedErrors
 
 % we know that the only undetected error could be when the error polyonym
 % is the same as the generator polyonym so we test it below for a loop of
-% 20
+% 1000
 numOfDetectedErrors = 0;
 for msg=1:1000
     d=randi([0 255],1,messageBytes,'double');

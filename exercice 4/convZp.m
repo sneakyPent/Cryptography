@@ -1,7 +1,5 @@
 function z = convZp(x, y, p)
 
-    % Fixme: calculates the concolution of x,y in Z_p
-    % 
     % calculate the convolution of x,y
     n=length(x);
     m=length(y);
